@@ -86,9 +86,15 @@ const DataTotal = ({ data, value, datasearch }) => {
                 <TableCell component="th" scope="row">
                   {item.Country}
                 </TableCell>
-                <TableCell align="right">{item.Confirmed}</TableCell>
-                <TableCell align="right">{item.Deaths}</TableCell>
-                <TableCell align="right">{item.Recovered}</TableCell>
+                <TableCell align="right">
+                  {item.TotalConfirmed || item.Confirmed}
+                </TableCell>
+                <TableCell align="right">
+                  {item.TotalDeaths || item.Deaths}
+                </TableCell>
+                <TableCell align="right">
+                  {item.TotalRecovered || item.Recovered}
+                </TableCell>
                 <TableCell align="right">
                   {dayjs(item.Date).format("DD/MM/YYYY")}
                 </TableCell>

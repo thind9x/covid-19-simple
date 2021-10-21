@@ -48,7 +48,8 @@ export const Home = ({ data }) => {
     //   setDatas(data);
     // }
   };
-  let datapush = isEmpty(datasearch) ? data : datasearch;
+
+  let datapush = isEmpty(datasearch) ? data.Countries : datasearch;
 
   return (
     <div className="container" style={{ marginTop: "10%" }}>
@@ -86,7 +87,7 @@ export const Home = ({ data }) => {
 };
 
 export async function getStaticProps(context) {
-  const res = await axios.get(`https://api.covid19api.com/country/vietnam`);
+  const res = await axios.get(`https://api.covid19api.com/summary`);
   const data = res.data;
 
   if (!data) {
